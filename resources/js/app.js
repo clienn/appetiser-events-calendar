@@ -4,9 +4,20 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import $ from 'jquery';
+import 'jquery-ui/ui/widgets/datepicker.js';
+
+window.$ = window.jQuery = $;
+
+
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+//require('noty');
+
+Vue.config.devtools = true;
+Vue.config.performance = true;
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,7 +32,7 @@ window.Vue = require('vue');
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 //Vue.component('name-component', require('./components/NameComponent.vue').default);
-Vue.component('events-calendar-component', require('./components/EventsCalendarComponent.vue').default);
+Vue.component('events-calendar-component', require('./components/App.vue').default);
 
 /*const example = require('./components/ExampleComponent.vue');
 const name = require('./components/NameComponent.vue');*/
@@ -35,3 +46,4 @@ const name = require('./components/NameComponent.vue');*/
 const app = new Vue({
     el: '#app',
 });
+

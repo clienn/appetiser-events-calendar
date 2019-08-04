@@ -211,8 +211,8 @@ svg {
 table {
   border-collapse: collapse;
 }
-table tr.success{
-    background: #71a0811f;
+table tr.success, li.has-event {
+  background: #71a0811f;
 	color: #1a483a;
 }
 .checkbox-align{
@@ -10916,11 +10916,18 @@ footer.sticky-footer .copyright {
   padding-top:20px;
 }
 
+#events-list, .no-select
+{
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 
 /* Scroll */
 .scrollable{
-   height: 700px;
-  overflow-y:auto;
+  height: 700px;
+  overflow:hidden;
   padding-bottom: 10px;
 }
 .scrollable::-webkit-scrollbar {
