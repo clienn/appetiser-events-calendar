@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "noty": "^3.2.0-beta",
-        "vue-uuid": "^1.1.1"
+        "vue-uuid": "^1.1.1",
+        "vuejs-datepicker": "^1.6.2"
     }
 }

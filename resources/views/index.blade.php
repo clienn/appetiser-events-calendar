@@ -56,54 +56,54 @@
         <script src="js/app.js"></script>
 
         <script>
-            (function($) {
-                /*$('.datepicker').datepicker({
-                    dateFormat: "yy-mm-dd"
-                });*/
+            // (function($) {
+            //     /*$('.datepicker').datepicker({
+            //         dateFormat: "yy-mm-dd"
+            //     });*/
 
-                /*new Noty({
-                    type: 'success',
-                    layout: 'topRight',
-                    text: 'Some notification text'
-                }).show();*/
-            })(jQuery);
+            //     /*new Noty({
+            //         type: 'success',
+            //         layout: 'topRight',
+            //         text: 'Some notification text'
+            //     }).show();*/
+            // })(jQuery);
             
-            //console.log($('ul.calendar-list li').offset().height);
-            // let isDown = false;
-            // let sx = 0;
-            // let sy = 0;
-            // let posTop = null;
+            // //console.log($('ul.calendar-list li').offset().height);
+            // // let isDown = false;
+            // // let sx = 0;
+            // // let sy = 0;
+            // // let posTop = null;
 
-            // $('ul.calendar-list').mousedown(function(e) {
-            //     sx = e.clientX;
-            //     sy = e.clientY;
-            //     isDown = true;
-            // });
+            // // $('ul.calendar-list').mousedown(function(e) {
+            // //     sx = e.clientX;
+            // //     sy = e.clientY;
+            // //     isDown = true;
+            // // });
 
-            // $('ul.calendar-list').mousemove(function(e) {
-            //     if (isDown) {
-            //         let dx = e.clientX;
-            //         let dy = e.clientY;
-            //         let y = (dy - sy);
-            //         posTop += y;
+            // // $('ul.calendar-list').mousemove(function(e) {
+            // //     if (isDown) {
+            // //         let dx = e.clientX;
+            // //         let dy = e.clientY;
+            // //         let y = (dy - sy);
+            // //         posTop += y;
 
-            //         let top = $(this).position().top;
+            // //         let top = $(this).position().top;
 
-            //         $('li', this).css({
-            //             top: (top + posTop) + 'px'
-            //         });
+            // //         $('li', this).css({
+            // //             top: (top + posTop) + 'px'
+            // //         });
 
-            //         sy = dy;
-            //     }
-            // });
+            // //         sy = dy;
+            // //     }
+            // // });
 
-            // $('ul.calendar-list').mouseup(function(e) {
-            //     isDown = false;
-            // }); 
+            // // $('ul.calendar-list').mouseup(function(e) {
+            // //     isDown = false;
+            // // }); 
             
-            // $('ul.calendar-list').mouseleave(function(e) {
-            //     isDown = false;
-            // });
+            // // $('ul.calendar-list').mouseleave(function(e) {
+            // //     isDown = false;
+            // // });
         </script>
 	</body>
 </html>

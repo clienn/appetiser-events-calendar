@@ -2098,6 +2098,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         dateFormat: "yy-mm-dd",
         type: "text"
       });
+      new Noty({
+        type: 'success',
+        layout: 'topRight',
+        text: 'Some notification text'
+      }).show();
     });
   }
 });
@@ -2260,6 +2265,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addEvent: function addEvent(e) {
       e.preventDefault();
+      alert($('#start_date').val());
       var n = 0;
 
       for (var key in this.days) {
@@ -2270,8 +2276,8 @@ __webpack_require__.r(__webpack_exports__);
       var newEvent = {
         description: this.description,
         days: hexstr,
-        start_date: this.start_date,
-        end_date: this.end_date
+        start_date: $('#start_date').val(),
+        end_date: $('#end_date').val()
       };
       this.$emit('add-event', newEvent);
     }
@@ -44197,59 +44203,7 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "form-group row" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("label", { attrs: { for: "start_date" } }, [_vm._v("From")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.start_date,
-              expression: "start_date"
-            }
-          ],
-          staticClass: "form-control datepicker",
-          attrs: { type: "text", id: "start_date", name: "start_date" },
-          domProps: { value: _vm.start_date },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.start_date = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("label", { attrs: { for: "end_date" } }, [_vm._v("to")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.end_date,
-              expression: "end_date"
-            }
-          ],
-          staticClass: "form-control datepicker",
-          attrs: { type: "text", id: "end_date", name: "end_date" },
-          domProps: { value: _vm.end_date },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.end_date = $event.target.value
-            }
-          }
-        })
-      ])
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
       _c("div", { staticClass: "form-check form-check-inline" }, [
@@ -44568,10 +44522,44 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(0)
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("label", { attrs: { for: "start_date" } }, [_vm._v("From")]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control datepicker",
+          attrs: {
+            type: "text",
+            id: "start_date",
+            name: "start_date",
+            required: ""
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("label", { attrs: { for: "end_date" } }, [_vm._v("to")]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control datepicker",
+          attrs: {
+            type: "text",
+            id: "end_date",
+            name: "end_date",
+            required: ""
+          }
+        })
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -56818,8 +56806,8 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //require('noty');
-
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.Noty = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
 Vue.config.devtools = true;
 Vue.config.performance = true;
 /**

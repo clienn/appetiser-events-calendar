@@ -14,7 +14,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-//require('noty');
+window.Noty = require('noty');
 
 Vue.config.devtools = true;
 Vue.config.performance = true;

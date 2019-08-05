@@ -262,6 +262,12 @@ export default {
                 dateFormat: "yy-mm-dd",
                 type: "text"
             });
+
+            new Noty({
+                    type: 'success',
+                    layout: 'topRight',
+                    text: 'Some notification text'
+                }).show();
         });
     }
 }

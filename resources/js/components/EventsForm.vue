@@ -8,11 +8,11 @@
         <div class="form-group row">
             <div class="col-sm-6">
                 <label for="start_date">From</label>
-                <input type="text" id="start_date" class="form-control datepicker" v-model="start_date" name="start_date">
+                <input type="text" id="start_date" class="form-control datepicker" name="start_date" required>
             </div>
             <div class="col-sm-6">
                 <label for="end_date">to</label>
-                <input type="text" id="end_date" class="form-control datepicker" v-model="end_date" name="end_date">
+                <input type="text" id="end_date" class="form-control datepicker" name="end_date" required>
             </div>
         </div>
 
@@ -66,7 +66,7 @@ export default {
     methods: {
         addEvent(e) {
             e.preventDefault();
-
+            alert($('#start_date').val());
             let n = 0;
 
             for (let key in this.days) {
@@ -78,8 +78,8 @@ export default {
             const newEvent = {
                 description: this.description,
                 days: hexstr,
-                start_date: this.start_date,
-                end_date: this.end_date,
+                start_date: $('#start_date').val(),
+                end_date: $('#end_date').val(),
             };
 
             this.$emit('add-event', newEvent);
@@ -87,6 +87,7 @@ export default {
     },
     created() {
         // placeholder
+        
     }
 }
 </script>
