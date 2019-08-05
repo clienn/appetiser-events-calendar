@@ -1922,7 +1922,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     read: function read() {
       var _this2 = this;
 
-      console.log('test read');
       window.axios.get('./events').then(function (_ref2) {
         var data = _ref2.data;
         //console.log(data);
@@ -1961,32 +1960,33 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         var str = this.days[key].year + '-' + (this.days[key].month + 1) + '-' + this.days[key].day;
         str = str.replace(/\b(\d)\b/g, '0$1');
         var checkDate = new Date(str);
-        var day = checkDate.getDay();
-        var hx = 1 << day;
-        var hex = parseInt('7f', 16);
-        var flag = false;
-        var eventName = '';
+        this.checkDayEvent(checkDate, this.days[key]);
+      }
+    },
+    checkDayEvent: function checkDayEvent(checkDate, currDay) {
+      var day = checkDate.getDay();
+      var hx = 1 << day;
+      var hex = parseInt('7f', 16);
+      var flag = false;
+      var eventName = '';
 
-        for (var k in this.events) {
-          if (this.events[k].id < 24) continue;
-          console.log('id', this.events[k].id);
-          var r = this.inDates(checkDate, new Date(this.events[k].start_date), new Date(this.events[k].end_date));
+      for (var k in this.events) {
+        if (this.events[k].id < 24) continue;
+        var r = this.inDates(checkDate, new Date(this.events[k].start_date), new Date(this.events[k].end_date));
 
-          if (r) {
-            console.log('hex', parseInt(this.events[k].days, 16));
-            hex = parseInt(this.events[k].days, 16);
-            flag = true;
-            eventName = this.events[k].description;
-          }
+        if (r) {
+          hex = parseInt(this.events[k].days, 16);
+          flag = true;
+          eventName = this.events[k].description;
         }
+      }
 
-        hx &= hex;
+      hx &= hex;
 
-        if (flag && hx > 0) {
-          this.days[key].event = eventName;
-        } else {
-          this.days[key].event = '';
-        }
+      if (flag && hx > 0) {
+        currDay.event = eventName;
+      } else {
+        currDay.event = '';
       }
     }
   },
@@ -2041,15 +2041,14 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }]);
             tmp.shift();
             obj.days = _toConsumableArray(tmp);
-            obj.init();
+            obj.checkDayEvent(obj.currDate, obj.days.slice(-1)[0]);
 
             if (flag) {
               $('li', this).css({
                 top: top + posTop + 'px'
               });
               flag = false;
-            } //$(this).append("<li><div>New day</div><div>New Desc</div></li>");
-
+            }
           } else if (posTop > 0 && posTop > lo) {
             lo += height;
             var _flag = false;
@@ -2061,7 +2060,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
 
             obj.minDate.setDate(obj.minDate.getDate() - 1);
-            obj.currDate.setDate(obj.currDate.getDate() - 1); //obj.currDate.setDate(obj.currDate.getDate() - 13);
+            obj.currDate.setDate(obj.currDate.getDate() - 1);
 
             var _tmp = [{
               id: vue_uuid__WEBPACK_IMPORTED_MODULE_2__["uuid"].v4(),
@@ -2075,7 +2074,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             _tmp.pop();
 
             obj.days = _toConsumableArray(_tmp);
-            obj.init();
+            obj.checkDayEvent(obj.minDate, obj.days[0]);
 
             if (_flag) {
               $('li', this).css({

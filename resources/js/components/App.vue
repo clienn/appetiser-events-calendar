@@ -63,8 +63,6 @@ export default {
                 });
         },
         read() {
-            console.log('test read');
-
             window.axios.get('./events')
                 .then(({ data }) => {
                     //console.log(data);
@@ -99,42 +97,40 @@ export default {
 
                 this.currDate.setDate(this.currDate.getDate() + 1);
             }
-
-            
         },
         init() {
             for (let key in this.days) {
                 let str = this.days[key].year + '-' +(this.days[key].month + 1) + '-' + this.days[key].day;
                 str = str.replace(/\b(\d)\b/g, '0$1');
                 let checkDate = new Date(str);
-
-                let day = checkDate.getDay();
-                let hx = 1 << day;
-                let hex = parseInt('7f', 16);
-                let flag = false;
-                let eventName = '';
-
-                for (let k in this.events) {
-                    if (this.events[k].id < 24) continue;
-                    console.log('id', this.events[k].id);
-                    let r = this.inDates(checkDate, new Date(this.events[k].start_date), new Date(this.events[k].end_date));
-                    
-                    if (r) {
-                        console.log('hex', parseInt(this.events[k].days, 16));
-                        hex = parseInt(this.events[k].days, 16);
-                        flag = true;
-                        eventName = this.events[k].description;
-                    }
-                }
-
-                hx &= hex;
-
-                if (flag && hx > 0) {
-                    this.days[key].event = eventName;
-                } else {
-                    this.days[key].event = '';
-                }
                 
+                this.checkDayEvent(checkDate, this.days[key]);
+            }
+        },
+        checkDayEvent(checkDate, currDay) {
+            let day = checkDate.getDay();
+            let hx = 1 << day;
+            let hex = parseInt('7f', 16);
+            let flag = false;
+            let eventName = '';
+
+            for (let k in this.events) {
+                if (this.events[k].id < 24) continue;
+                let r = this.inDates(checkDate, new Date(this.events[k].start_date), new Date(this.events[k].end_date));
+                
+                if (r) {
+                    hex = parseInt(this.events[k].days, 16);
+                    flag = true;
+                    eventName = this.events[k].description;
+                }
+            }
+
+            hx &= hex;
+
+            if (flag && hx > 0) {
+                currDay.event = eventName;
+            } else {
+                currDay.event = '';
             }
         }
     },
@@ -199,7 +195,7 @@ export default {
 
                         tmp.shift();
                         obj.days = [...tmp];
-                        obj.init();
+                        obj.checkDayEvent(obj.currDate, obj.days.slice(-1)[0]);
 
                         if (flag) {
                             $('li', this).css({
@@ -208,8 +204,6 @@ export default {
 
                             flag = false;
                         }
-
-                        //$(this).append("<li><div>New day</div><div>New Desc</div></li>");
                     } else if (posTop > 0 && posTop > lo) {
                         lo += height;
                         let flag = false;
@@ -222,7 +216,6 @@ export default {
 
                         obj.minDate.setDate(obj.minDate.getDate() - 1);
                         obj.currDate.setDate(obj.currDate.getDate() - 1);
-                        //obj.currDate.setDate(obj.currDate.getDate() - 13);
 
                         let tmp = [{
                             id: uuid.v4(),
@@ -235,7 +228,7 @@ export default {
 
                         tmp.pop();
                         obj.days = [...tmp];
-                        obj.init();
+                        obj.checkDayEvent(obj.minDate, obj.days[0]);
 
                         if (flag) {
                             $('li', this).css({
@@ -264,10 +257,10 @@ export default {
             });
 
             new Noty({
-                    type: 'success',
-                    layout: 'topRight',
-                    text: 'Some notification text'
-                }).show();
+                type: 'success',
+                layout: 'topRight',
+                text: 'Some notification text'
+            }).show();
         });
     }
 }
