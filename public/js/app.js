@@ -2265,7 +2265,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addEvent: function addEvent(e) {
       e.preventDefault();
-      alert($('#start_date').val());
       var n = 0;
 
       for (var key in this.days) {

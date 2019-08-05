@@ -66,7 +66,7 @@ export default {
     methods: {
         addEvent(e) {
             e.preventDefault();
-            alert($('#start_date').val());
+            
             let n = 0;
 
             for (let key in this.days) {
