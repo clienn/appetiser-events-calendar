@@ -8,11 +8,11 @@
         <div class="form-group row">
             <div class="col-sm-6">
                 <label for="start_date">From</label>
-                <input type="text" id="start_date" class="form-control datepicker" name="start_date" required>
+                <input type="text" id="start_date" class="form-control datepicker" name="start_date" autocomplete="off" required>
             </div>
             <div class="col-sm-6">
                 <label for="end_date">to</label>
-                <input type="text" id="end_date" class="form-control datepicker" name="end_date" required>
+                <input type="text" id="end_date" class="form-control datepicker" name="end_date" autocomplete="off"  required>
             </div>
         </div>
 

@@ -44540,6 +44540,7 @@ var staticRenderFns = [
             type: "text",
             id: "start_date",
             name: "start_date",
+            autocomplete: "off",
             required: ""
           }
         })
@@ -44554,6 +44555,7 @@ var staticRenderFns = [
             type: "text",
             id: "end_date",
             name: "end_date",
+            autocomplete: "off",
             required: ""
           }
         })
