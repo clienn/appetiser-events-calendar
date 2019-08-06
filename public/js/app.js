@@ -1995,6 +1995,19 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     var obj = this;
     this.populateCalendar();
     $(document).ready(function () {
+      var n = new Noty({
+        text: 'NOTY - a jquery notification library!',
+        animation: {
+          open: 'animated bounceInLeft',
+          // Animate.css class names
+          close: 'animated bounceOutLeft',
+          // Animate.css class names
+          easing: 'swing',
+          // unavailable - no need
+          speed: 500 // unavailable - no need
+
+        }
+      });
       var isDown = false;
       var sx = 0;
       var sy = 0;
@@ -2097,11 +2110,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         dateFormat: "yy-mm-dd",
         type: "text"
       });
-      new Noty({
-        type: 'success',
-        layout: 'topRight',
-        text: 'Some notification text'
-      }).show();
     });
   }
 });
@@ -56846,7 +56854,6 @@ var app = new Vue({
 /***/ (function(module, exports, __webpack_require__) {
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-window.Noty = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -56866,7 +56873,8 @@ try {
  */
 
 
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"); //window.Noty = require('noty');
+
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Next we will register the CSRF Token as a common header with Axios so that

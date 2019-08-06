@@ -139,8 +139,20 @@ export default {
    
         let obj = this;
         this.populateCalendar();
+        
+        
 
         $(document).ready(function() {
+            var n = new Noty({
+                text: 'NOTY - a jquery notification library!',
+                animation: {
+                    open: 'animated bounceInLeft', // Animate.css class names
+                    close: 'animated bounceOutLeft', // Animate.css class names
+                    easing: 'swing', // unavailable - no need
+                    speed: 500 // unavailable - no need
+                }
+            });
+
             let isDown = false;
             let sx = 0;
             let sy = 0;
@@ -256,11 +268,6 @@ export default {
                 type: "text"
             });
 
-            new Noty({
-                type: 'success',
-                layout: 'topRight',
-                text: 'Some notification text'
-            }).show();
         });
     }
 }

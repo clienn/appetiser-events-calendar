@@ -7,13 +7,13 @@
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/datepicker.js';
 
+
 window.$ = window.jQuery = $;
 
 
 require('./bootstrap');
 
 window.Vue = require('vue');
-
 window.Noty = require('noty');
 
 Vue.config.devtools = true;

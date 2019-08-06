@@ -18,9 +18,6 @@
 		<!-- Custom styles for this template-->
         <link rel="stylesheet" href="{{asset('css/custom.css')}}">
         <link rel="stylesheet" href="{{asset('js/lib/jquery-ui-1.12.1/jquery-ui.css')}}">
-        
-        
-
 	</head>
 	
 	<body id="page-top sidebar-toggled" >
@@ -56,54 +53,9 @@
         <script src="js/app.js"></script>
 
         <script>
-            // (function($) {
-            //     /*$('.datepicker').datepicker({
-            //         dateFormat: "yy-mm-dd"
-            //     });*/
-
-            //     /*new Noty({
-            //         type: 'success',
-            //         layout: 'topRight',
-            //         text: 'Some notification text'
-            //     }).show();*/
-            // })(jQuery);
-            
-            // //console.log($('ul.calendar-list li').offset().height);
-            // // let isDown = false;
-            // // let sx = 0;
-            // // let sy = 0;
-            // // let posTop = null;
-
-            // // $('ul.calendar-list').mousedown(function(e) {
-            // //     sx = e.clientX;
-            // //     sy = e.clientY;
-            // //     isDown = true;
-            // // });
-
-            // // $('ul.calendar-list').mousemove(function(e) {
-            // //     if (isDown) {
-            // //         let dx = e.clientX;
-            // //         let dy = e.clientY;
-            // //         let y = (dy - sy);
-            // //         posTop += y;
-
-            // //         let top = $(this).position().top;
-
-            // //         $('li', this).css({
-            // //             top: (top + posTop) + 'px'
-            // //         });
-
-            // //         sy = dy;
-            // //     }
-            // // });
-
-            // // $('ul.calendar-list').mouseup(function(e) {
-            // //     isDown = false;
-            // // }); 
-            
-            // // $('ul.calendar-list').mouseleave(function(e) {
-            // //     isDown = false;
-            // // });
+            /*new Noty({
+                text: 'This is my noty Message',
+            }).show();*/
         </script>
 	</body>
 </html>
