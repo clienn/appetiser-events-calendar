@@ -51,11 +51,5 @@
         <script src="{{asset('js/custom.js')}}"></script>
 
         <script src="js/app.js"></script>
-
-        <script>
-            /*new Noty({
-                text: 'This is my noty Message',
-            }).show();*/
-        </script>
 	</body>
 </html>
