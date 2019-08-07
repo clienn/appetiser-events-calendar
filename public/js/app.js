@@ -1971,7 +1971,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       var eventName = '';
 
       for (var k in this.events) {
-        if (this.events[k].id < 24) continue;
+        //if (this.events[k].id < 24) continue;
         var r = this.inDates(checkDate, new Date(this.events[k].start_date), new Date(this.events[k].end_date));
 
         if (r) {
