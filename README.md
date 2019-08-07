@@ -7,8 +7,7 @@ Added Features:
 2. Minimized db storage by storing checked days in hex format
 
 Bugs:
-1. Datetime picker erasing when unrelated checkbox is clicked
-2. Scroll sometimes misses a number
+1. Scroll sometimes misses a number
 
 Missing:
 1. Disable checkboxes not included in date range days
