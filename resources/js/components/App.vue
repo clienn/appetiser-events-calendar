@@ -115,7 +115,7 @@ export default {
             let eventName = '';
 
             for (let k in this.events) {
-                if (this.events[k].id < 24) continue;
+                //if (this.events[k].id < 24) continue;
                 let r = this.inDates(checkDate, new Date(this.events[k].start_date), new Date(this.events[k].end_date));
                 
                 if (r) {
